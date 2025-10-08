@@ -27,6 +27,7 @@ int main() {
 	int l1 = sizeof(arr1) / sizeof(arr1[1]);
 	H(arr1, l1);
 	P(arr1);
+    cout<<"Everything will be fine...";
 	return 0;
 
 

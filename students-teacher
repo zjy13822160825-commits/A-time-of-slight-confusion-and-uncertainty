@@ -1,0 +1,62 @@
+#include<iostream>
+using namespace std;
+#include<string>
+#include<ctime>
+
+struct Student {
+	string name;
+	int score;
+};
+
+struct Teacher {
+	string name;
+	int age;
+	struct Student array2[5];
+};
+
+void info(Teacher array1 [], int l1) {
+
+	string h = "ABCDE";
+
+	for (int i = 0; i < l1; i++) {
+		int random1 = rand() % 30 + 25;
+		array1[i].name = "Teacher_";
+		array1[i].name += h[i];
+		array1[i].age = random1;
+		
+		for (int j = 0; j < 5;j++) {
+			int random = rand() % 101;
+			array1[i].array2[j].name = "Student_";
+			array1[i].array2[j].name += h[j];
+			array1[i].array2[j].score = random;
+
+		}
+
+	}
+
+	
+}
+
+void print(Teacher array1[],int l) {
+	for (int i = 0; i < l; i++) {
+		cout << "老师：" << array1[i].name
+			<< "年龄：" << array1[i].age<<endl;
+		cout << endl;
+		for (int j = 0; j < 5; j++) {
+			cout << "学生：" << array1[i].array2[j].name
+				<< "成绩：" << array1[i].array2[j].score<<endl;
+		}
+		cout << endl;
+		cout << endl;
+	}
+}
+
+int main() {
+	srand((unsigned int)time(NULL));
+	struct Teacher a[3];
+	int l = sizeof(a) / sizeof(a[0]);
+	info(a, l);
+	print(a, l);
+	return 0;
+
+}
